@@ -17,32 +17,62 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Do all of your work inside the document.addEventListener  
 
   // Part 1
-
+  const mainTitle = document.querySelector('#main-title');
+  mainTitle.textContent = "Welcome";
 
   // Part 2
-
+  const body = document.querySelector('body');
+  body.style.backgroundColor = "rgb(149, 73, 73)";
 
   // Part 3
-
-
+  const favList = document.querySelector("#favorite-things");
+  favList.lastElementChild.remove()
+  
   // Part 4
-
+  const specialTitle = document.querySelectorAll(".special-title");
+  specialTitle.forEach(title => {
+      title.style.fontSize = "2rem";
+  })
 
   // Part 5
-
+  const pastRaces = document.querySelectorAll("#past-races > li");
+  for(let i = 0; i < pastRaces.length; i++) {
+    if(pastRaces[i].textContent === "Chicago"){
+      pastRaces[i].remove()
+    }
+  }
 
   // Part 6
-
+  const newLi = document.createElement("li")
+  newLi.textContent = "Paris"
+  const pastRacesUl = document.querySelector("#past-races")
+  pastRacesUl.appendChild(newLi)
+  
 
   // Part 7
-
+  const newDiv = document.createElement("div");
+  newDiv.classList.add("blog-post", "purple");
+  newDiv.innerHTML =
+    "<h1>Paris</h1><p>OMG I CRASHED 7 CARS AND STILL ALIVE!!!! </p>";
+  const mainDivWithBlogs = document.querySelector(".main")
+  mainDivWithBlogs.appendChild(newDiv)
+  
 
   // Part 8
-
+  const quoteTitle = document.getElementById("quote-title")
+  quoteTitle.addEventListener("click", randomQuote)
+  quoteTitle.style.cursor = "pointer"
 
   // Part 9
-
-
-
+  const blogPosts = document.querySelectorAll(".blog-post")
+  console.log(blogPosts)
+  blogPosts.forEach(post => {
+    post.addEventListener("mouseout", () => {
+      post.classList.toggle("purple")
+    })
+    post.addEventListener("mouseenter", () => {
+      post.classList.toggle("red");
+    });
+  })
 
 });
